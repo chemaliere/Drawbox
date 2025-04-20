@@ -5,12 +5,13 @@ const colorPicker = document.getElementById('colorPicker');
 const sizePicker = document.getElementById('sizePicker');
 const downloadButton = document.getElementById('saveButton');
 const undoButton = document.getElementById('undo-button');
-const saveLink = document.getElementById('saveLink');
+const sendLink = document.getElementById('sendLink');
 
-// Set canvas size and white background
-// Change these settings in the html,  when you want to change the canvas size
+// Set canvas size: hange the width and height in html and css accordingly to resize the canvas
 canvas.width = 350;
 canvas.height = 350;
+
+// Set canvas background color to white
 ctx.fillStyle = '#FFFFFF';
 ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -76,7 +77,7 @@ canvas.addEventListener('mouseup', () => {
 undoButton.addEventListener('click', restoreState);
 
 // Firestore Send
-saveLink.addEventListener('click', async () => {
+sendLink.addEventListener('click', async () => {
   const dataURL = canvas.toDataURL("image/png");
   const timestamp = new Date().toISOString();
 
